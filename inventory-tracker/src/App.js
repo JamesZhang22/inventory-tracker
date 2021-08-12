@@ -1,25 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import Info from "./info.js"
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          SHEESH
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Info></Info>
+      <AddItem></AddItem>
     </div>
   );
+}
+
+function AddItem() {
+  const value = "itemName"
+
+  return (
+    <form>
+      <label for="text-from">Type something</label>
+      <input type="text" id="text-form" value={value}></input>
+    </form>
+  )
 }
 
 export default App;
