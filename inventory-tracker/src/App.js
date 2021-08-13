@@ -1,45 +1,33 @@
 import './App.css';
-import { PropTypes } from "prop-types";
-import Info from "./info.js";
-import { useState } from "react";
+import SearchBar  from './SearchBar';
+import AddItem from './AddItem';
+import ItemsDisplay from './ItemsDisplay';
+import {useState} from "react";
 
 function App() {
+  const [filters, setFilters] = useState({});
+  const [data, setData] = useState({items: []});
+
+  const updateFilters = (searchParams) => {
+    setFilters(searchParams);
+  };
+
+  const addItemToData = (item) => {
+    let items = data["items"];
+    item.id = items.length;
+    items.push(item);
+    setData({items: items});
+    console.log(data);
+  };
+
   return (
     <div className="App">
-      <Info title="Inventory"></Info>
-      <ButtonState></ButtonState>
+      <SearchBar updateSearchParams={updateFilters}></SearchBar>
+      <ItemsDisplay items={data["items"]}></ItemsDisplay>
+      <AddItem addItem={addItemToData}></AddItem>
     </div>
   );
 }
 
-function ButtonState() {
-  const [title, setTitle] = useState("");
-  const [count, setCount] = useState(0);
-
-  const updateTitleClicked = () => {
-    setTitle("We now have a title");
-  }
-
-  const updateCounterClicked = () => {
-    setCount(count + 1);
-  }
-
-  return (
-    <div>
-      <Data title={title} count={count}></Data>
-      <button onClick={updateTitleClicked}>Update Title</button>
-      <button onClick={updateCounterClicked}>Update Counter</button>
-    </div>
-  );
-}
-
-function Data(props) {
-  return (
-    <div>
-      <p>Title: {props.title}</p>
-      <p>Count: {props.count}</p>
-    </div>
-  );
-}
 
 export default App;
