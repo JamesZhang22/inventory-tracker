@@ -1,20 +1,27 @@
 import React from "react";
+import { PropTypes } from "prop-types";
 
 class Info extends React.Component {
-    render () {
-        const title = "This is my title";
-        const showTitle = true;
+    constructor(props) {
+        super(props);
+        this.state = {
+          count: 0
+        };
+    }
 
-        if (showTitle) {
-            return (
-              <div>
-                <h1>{title}</h1>
-                <p>Manage your stuff</p>
-              </div>
-            );
-          } else {
-            return (<p>Empty</p>);
-          }
+    buttonPressed() {
+      this.setState({
+        count: this.state.count + 1
+      });
+    }
+
+    render () {
+      return (
+        <div>
+          <p>Count: {this.state.count}</p>
+          <button onClick={() => this.buttonPressed()}>Click Me</button>
+        </div>
+      )
     }
 }
 
