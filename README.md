@@ -1,2 +1,2 @@
 # inventory-tracker
-Inventory tracker using react js.
+Inventory tracker using react.
