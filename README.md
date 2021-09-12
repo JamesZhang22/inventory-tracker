@@ -1,5 +1,5 @@
 # inventory-tracker
-Inventory tracker using react.
+Check it out here: https://jameszhang22.github.io/inventory-tracker-page/
 
 ## Information
 - Store your wish list, shopping list, gift list etc.
